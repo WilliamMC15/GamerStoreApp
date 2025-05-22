@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_cart"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/fondoGlobal">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvResumenCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resumen"
+        android:textColor="@color/textoBlanco"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:background="@color/destacado" />
+
+    <Button
+        android:id="@+id/btnPagarCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pagar"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/destacado"
+        android:textColor="@color/textoBlanco" />
+
+    <Button
+        android:id="@+id/btnVaciarCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vaciar carrito"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/destacado"
+        android:textColor="@color/textoBlanco" />
+</LinearLayout>

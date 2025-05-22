@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoGlobal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- LOGO + NOMBRE APP -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/logo_gamer"
+                android:layout_gravity="center"
+                android:contentDescription="Logo Gamer" />
+
+
+            <TextView
+                android:id="@+id/tvNombreAppLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/textoBlanco"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginStart="12dp"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <!-- MENSAJE INICIO -->
+        <TextView
+            android:id="@+id/tvMensajeLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="La aventura está por iniciar, por favor inicia sesión"
+            android:textColor="@color/textoBlanco"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"
+            android:textSize="16sp" />
+
+        <!-- CAMPO USUARIO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/icon_user"
+                android:layout_marginEnd="12dp" />
+
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
+                android:backgroundTint="@color/textoBlanco"
+                android:textColor="@color/textoBlanco"
+                android:textColorHint="@color/textoBlanco" />
+        </LinearLayout>
+
+        <!-- CAMPO CONTRASEÑA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/icon_password"
+                android:layout_marginEnd="12dp" />
+
+            <EditText
+                android:id="@+id/etContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:backgroundTint="@color/textoBlanco"
+                android:textColor="@color/textoBlanco"
+                android:textColorHint="@color/textoBlanco" />
+        </LinearLayout>
+
+        <!-- BOTÓN INGRESAR -->
+        <Button
+            android:id="@+id/btnIngresar"
+            style="@style/BotonPrimario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar" />
+
+        <!-- ENLACE RECUPERAR CONTRASEÑA -->
+        <TextView
+            android:id="@+id/tvRecuperar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recuperar contraseña"
+            style="@style/EnlaceTexto"
+            android:layout_marginTop="16dp" />
+
+        <!-- BOTÓN GOOGLE -->
+        <Button
+            android:id="@+id/btnGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresa con Google"
+            android:layout_marginTop="32dp"
+            android:background="@android:color/white"
+            android:textColor="@color/fondoGlobal" />
+
+        <!-- ENLACE REGISTRATE -->
+        <TextView
+            android:id="@+id/tvIrRegistrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes cuenta? Registrate"
+            style="@style/EnlaceTexto"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+</ScrollView>

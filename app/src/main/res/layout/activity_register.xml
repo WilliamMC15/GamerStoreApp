@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoGlobal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Logo y Nombre de la App -->
+        <ImageView
+            android:id="@+id/ivLogoRegister"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_app"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/tvNombreAppRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/textoBlanco"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Campos -->
+        <EditText
+            android:id="@+id/etNombres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombres"
+            android:inputType="textPersonName"
+            android:layout_marginTop="24dp"
+            android:textColorHint="@color/textoBlanco"
+            android:textColor="@color/textoBlanco"
+            android:backgroundTint="@color/textoBlanco"/>
+
+        <EditText
+            android:id="@+id/etApellidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellidos"
+            android:inputType="textPersonName"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/textoBlanco"
+            android:textColor="@color/textoBlanco"
+            android:backgroundTint="@color/textoBlanco"/>
+
+        <EditText
+            android:id="@+id/etCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo Electrónico"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/textoBlanco"
+            android:textColor="@color/textoBlanco"
+            android:backgroundTint="@color/textoBlanco"/>
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono"
+            android:inputType="phone"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/textoBlanco"
+            android:textColor="@color/textoBlanco"
+            android:backgroundTint="@color/textoBlanco"/>
+
+        <EditText
+            android:id="@+id/etContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/textoBlanco"
+            android:textColor="@color/textoBlanco"
+            android:backgroundTint="@color/textoBlanco"/>
+
+        <EditText
+            android:id="@+id/etRepetirContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Repetir Contraseña"
+            android:inputType="textPassword"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/textoBlanco"
+            android:textColor="@color/textoBlanco"
+            android:backgroundTint="@color/textoBlanco"/>
+
+        <CheckBox
+            android:id="@+id/cbTerminos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aceptar términos y condiciones"
+            android:textColor="@color/textoBlanco"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btnRegistro"
+            style="@style/BotonPrimario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar"
+            android:layout_marginTop="32dp"/>
+    </LinearLayout>
+</ScrollView>

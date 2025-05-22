@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gamer Store</string>
+    <string name="autor_nombre">William Medina</string>
+    <string name="mensaje_bienvenida">Explora lo último en tecnología gamer. Prepara tu setup.</string>
+    <string name="comienza">Comenzar</string>
+    <string name="registrate">Crear cuenta</string>
+    <string name="ok">Aceptar</string>
+    <string name="categoria_electronica">Accesorios Gamer</string>
+    <string name="titulo_inicio">Inicio</string>
+    <string name="titulo_productos">Catálogo</string>
+    <string name="titulo_categorias">Categorías</string>
+    <string name="titulo_carrito">Mi Carrito</string>
+    <string name="titulo_perfil">Mi Perfil</string>
+    <string name="badge_sin_stock">Sin stock</string>
+
+    <!-- Textos para RecoveryActivity -->
+    <string name="recovery_title">Recuperar contraseña</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="button_send_code">Enviar código</string>
+    <string name="hint_code">Código recibido</string>
+    <string name="hint_new_password">Nueva contraseña</string>
+    <string name="button_reset_password">Restablecer contraseña</string>
+
+    <!-- Audio settings -->
+    <string name="label_music">Música de fondo</string>
+    <string name="label_effects_volume">Volumen de efectos</string>
+
+    <string name="google_maps_key">AIzaSyCQcGPRL8BKqmzdtd5w29G0BvxQ8EZgdsg</string>
+</resources>

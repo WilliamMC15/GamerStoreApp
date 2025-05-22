@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Declaramos el atributo para que fontFamily sea válido en estilos -->
+    <attr name="fontFamily" format="reference"/>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Neón y oscuro para temática gamer -->
+    <color name="fondoGlobal">#121212</color>       <!-- Fondo oscuro -->
+    <color name="destacado">#00FFFF</color>         <!-- Cian neón como acento principal -->
+    <color name="teal_200">#00FF9D</color>          <!-- Verde neón alternativo -->
+    <color name="purple_500">#7C3AED</color>        <!-- Púrpura neón secundario -->
+    <color name="purple_700">#4C1D95</color>        <!-- Púrpura oscuro para resaltados -->
+    <color name="textoBlanco">#FFFFFF</color>       <!-- Texto claro -->
+    <color name="black">#121212</color>             <!-- Alias fondo -->
+    <color name="white">#FFFFFF</color>             <!-- Alias texto -->
+    <color name="fondoSplash">#0C1B2A</color>       <!-- Splash más oscuro -->
+    <color name="purple_200">#A855F7</color>        <!-- Púrpura medio -->
+    <color name="teal_700">#00FFFF</color>          <!-- Mismo cian neón -->
+</resources>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoGlobal"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Imagen de perfil -->
+        <ImageView
+            android:id="@+id/ivFotoPerfil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_profile"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Nombre completo -->
+        <TextView
+            android:id="@+id/tvNombresPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Apellido"
+            android:textSize="18sp"
+            android:textColor="@color/textoBlanco"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Correo electrónico -->
+        <TextView
+            android:id="@+id/tvCorreoPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="correo@correo.com"
+            android:textColor="@color/textoBlanco"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Teléfono -->
+        <TextView
+            android:id="@+id/tvTelefonoPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234567890"
+            android:textColor="@color/textoBlanco"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Botón Editar -->
+        <Button
+            android:id="@+id/btnEditarPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/destacado"
+            android:text="Editar"
+            android:textColor="@color/textoBlanco"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Botón Cerrar Sesión -->
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/destacado"
+            android:text="Cerrar sesión"
+            android:textColor="@color/textoBlanco" />
+
+        <!-- Botón Eliminar Cuenta -->
+        <Button
+            android:id="@+id/btnEliminarCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eliminar cuenta"
+            android:textColor="@android:color/holo_red_dark"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Switch para Música de fondo -->
+        <Switch
+            android:id="@+id/switchMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_music"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Volumen de efectos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_effects_volume"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/textoBlanco"/>
+
+        <SeekBar
+            android:id="@+id/seekbarVolume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"/>
+    </LinearLayout>
+</ScrollView>

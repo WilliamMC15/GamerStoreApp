@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/fondoGlobal">
+
+    <EditText
+        android:id="@+id/etEditarNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:textColorHint="@color/textoBlanco"
+        android:textColor="@color/textoBlanco"
+        android:backgroundTint="@color/textoBlanco" />
+
+    <EditText
+        android:id="@+id/etEditarApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Apellidos"
+        android:layout_marginTop="16dp"
+        android:textColorHint="@color/textoBlanco"
+        android:textColor="@color/textoBlanco"
+        android:backgroundTint="@color/textoBlanco" />
+
+    <EditText
+        android:id="@+id/etEditarCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo"
+        android:layout_marginTop="16dp"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/textoBlanco"
+        android:textColor="@color/textoBlanco"
+        android:backgroundTint="@color/textoBlanco" />
+
+    <EditText
+        android:id="@+id/etEditarTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Teléfono"
+        android:layout_marginTop="16dp"
+        android:inputType="phone"
+        android:textColorHint="@color/textoBlanco"
+        android:textColor="@color/textoBlanco"
+        android:backgroundTint="@color/textoBlanco" />
+
+    <Button
+        android:id="@+id/btnGuardarPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar cambios"
+        android:layout_marginTop="24dp"
+        android:background="@color/destacado"
+        android:textColor="@color/textoBlanco" />
+</LinearLayout>

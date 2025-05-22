@@ -1,0 +1,27 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoGlobal"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tvWelcomeHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Bienvenido a Gamer Store!"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/textoBlanco"/>
+
+    <TextView
+        android:id="@+id/tvIntroHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explora hardware, periféricos y más para tu setup"
+        android:textSize="16sp"
+        android:textColor="@color/textoBlanco"
+        android:layout_marginTop="12dp"/>
+</LinearLayout>
