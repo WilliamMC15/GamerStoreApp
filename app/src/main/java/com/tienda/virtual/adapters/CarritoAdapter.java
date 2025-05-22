@@ -1,9 +1,10 @@
 package com.tienda.virtual.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,11 +27,16 @@ import java.util.List;
 public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHolder> {
 
     private final List<Producto> productos;
+    private final Context context;
     private final PreferenceManager pm;
     private final Runnable callbackActualizar;
 
-    public CarritoAdapter(List<Producto> productos, PreferenceManager pm, Runnable callbackActualizar) {
+    public CarritoAdapter(List<Producto> productos,
+                          Context context,
+                          PreferenceManager pm,
+                          Runnable callbackActualizar) {
         this.productos = productos;
+        this.context = context;
         this.pm = pm;
         this.callbackActualizar = callbackActualizar;
     }
@@ -38,7 +44,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
     @NonNull
     @Override
     public CarritoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
+        View v = LayoutInflater.from(context)
                 .inflate(R.layout.item_carrito, parent, false);
         return new ViewHolder(v);
     }
@@ -47,7 +53,6 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
     public void onBindViewHolder(@NonNull CarritoAdapter.ViewHolder holder, int position) {
         Producto producto = productos.get(position);
 
-        // Carga de datos
         holder.tvNombre.setText(producto.getNombre());
         holder.tvCantidad.setText(String.valueOf(producto.getCantidad()));
         double subtotal = producto.getCantidad() * producto.getPrecio();
@@ -56,19 +61,21 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
 
         // Aumentar cantidad
         holder.btnAumentar.setOnClickListener(v -> {
+            int pos = holder.getAdapterPosition();
             int nuevaCant = producto.getCantidad() + 1;
             producto.setCantidad(nuevaCant);
-            pm.actualizarCantidad(producto.getId(), nuevaCant); // Ajustar según tu método real
+            pm.actualizarCantidad(pos, nuevaCant);
             holder.tvCantidad.setText(String.valueOf(nuevaCant));
             callbackActualizar.run();
         });
 
         // Disminuir cantidad
         holder.btnDisminuir.setOnClickListener(v -> {
+            int pos = holder.getAdapterPosition();
             int nuevaCant = producto.getCantidad() - 1;
             if (nuevaCant < 1) return;
             producto.setCantidad(nuevaCant);
-            pm.actualizarCantidad(producto.getId(), nuevaCant); // Ajustar según tu método real
+            pm.actualizarCantidad(pos, nuevaCant);
             holder.tvCantidad.setText(String.valueOf(nuevaCant));
             callbackActualizar.run();
         });
@@ -76,7 +83,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
         // Eliminar del carrito
         holder.btnEliminar.setOnClickListener(v -> {
             int pos = holder.getAdapterPosition();
-            pm.eliminarDelCarrito(producto.getId());
+            pm.eliminarDelCarrito(pos);
             productos.remove(pos);
             notifyItemRemoved(pos);
             callbackActualizar.run();
@@ -91,17 +98,17 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
     static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivImagen;
         TextView tvNombre, tvPrecio, tvCantidad;
-        ImageButton btnAumentar, btnDisminuir, btnEliminar;
+        Button btnAumentar, btnDisminuir, btnEliminar;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivImagen     = itemView.findViewById(R.id.ivCarritoImagen);
-            tvNombre     = itemView.findViewById(R.id.tvCarritoNombre);
-            tvPrecio     = itemView.findViewById(R.id.tvCarritoPrecio);
-            tvCantidad   = itemView.findViewById(R.id.tvCantidad);
-            btnAumentar  = itemView.findViewById(R.id.btnAumentar);
-            btnDisminuir = itemView.findViewById(R.id.btnDisminuir);
-            btnEliminar  = itemView.findViewById(R.id.btnEliminarCarrito);
+            ivImagen    = itemView.findViewById(R.id.ivCarritoImagen);
+            tvNombre    = itemView.findViewById(R.id.tvCarritoNombre);
+            tvPrecio    = itemView.findViewById(R.id.tvCarritoPrecio);
+            tvCantidad  = itemView.findViewById(R.id.tvCantidad);
+            btnAumentar = itemView.findViewById(R.id.btnAumentar);
+            btnDisminuir= itemView.findViewById(R.id.btnDisminuir);
+            btnEliminar = itemView.findViewById(R.id.btnEliminarCarrito);
         }
     }
 }

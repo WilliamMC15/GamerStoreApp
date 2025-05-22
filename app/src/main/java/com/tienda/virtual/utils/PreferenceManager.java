@@ -14,22 +14,22 @@ import java.util.List;
 
 public class PreferenceManager {
 
-    private static final String PREF_NAME = "TiendaVirtualPrefs";
-    private static final String KEY_USUARIOS = "USUARIOS";
-    private static final String KEY_SESION = "SESION_ACTIVA";
-    private static final String KEY_ROL_ACTIVO = "ROL_ACTIVO";
-    private static final String KEY_PRODUCTOS = "PRODUCTOS";
-    private static final String KEY_MUSIC_ENABLED = "MUSIC_ENABLED";
-    private static final String KEY_SOUND_VOLUME  = "SOUND_VOLUME";
+    private static final String PREF_NAME            = "TiendaVirtualPrefs";
+    private static final String KEY_USUARIOS         = "USUARIOS";
+    private static final String KEY_SESION           = "SESION_ACTIVA";
+    private static final String KEY_ROL_ACTIVO       = "ROL_ACTIVO";
+    private static final String KEY_PRODUCTOS        = "PRODUCTOS";
+    private static final String KEY_MUSIC_ENABLED    = "MUSIC_ENABLED";
+    private static final String KEY_SOUND_VOLUME     = "SOUND_VOLUME";
 
     private final SharedPreferences prefs;
     private final SharedPreferences.Editor editor;
     private final Gson gson;
 
     public PreferenceManager(Context context) {
-        prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        prefs  = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = prefs.edit();
-        gson = new Gson();
+        gson   = new Gson();
     }
 
     // === MANEJO DE USUARIOS ===
@@ -38,19 +38,19 @@ public class PreferenceManager {
         List<Usuario> usuarios = obtenerUsuarios();
         for (Usuario u : usuarios) {
             if (u.getCorreo().equalsIgnoreCase(correo)) {
-                return false;
+                return false; // ya existe
             }
         }
-        Usuario nuevo = new Usuario(nombres, apellidos, correo, telefono, contrasena);
-        usuarios.add(nuevo);
-        guardarUsuarios(usuarios);
+        usuarios.add(new Usuario(nombres, apellidos, correo, telefono, contrasena));
+        String json = gson.toJson(usuarios);
+        editor.putString(KEY_USUARIOS, json).apply();
         return true;
     }
 
     public boolean validarLogin(String correo, String contrasena) {
-        List<Usuario> usuarios = obtenerUsuarios();
-        for (Usuario u : usuarios) {
-            if (u.getCorreo().equalsIgnoreCase(correo) && u.getContrasena().equals(contrasena)) {
+        for (Usuario u : obtenerUsuarios()) {
+            if (u.getCorreo().equalsIgnoreCase(correo)
+                    && u.getContrasena().equals(contrasena)) {
                 return true;
             }
         }
@@ -71,10 +71,10 @@ public class PreferenceManager {
     }
 
     public Usuario obtenerUsuarioActivo() {
-        String correoSesion = prefs.getString(KEY_SESION, null);
-        if (correoSesion == null) return null;
+        String correo = prefs.getString(KEY_SESION, null);
+        if (correo == null) return null;
         for (Usuario u : obtenerUsuarios()) {
-            if (u.getCorreo().equalsIgnoreCase(correoSesion)) {
+            if (u.getCorreo().equalsIgnoreCase(correo)) {
                 return u;
             }
         }
@@ -90,21 +90,7 @@ public class PreferenceManager {
         return new ArrayList<>();
     }
 
-    public void guardarUsuarios(List<Usuario> usuarios) {
-        String json = gson.toJson(usuarios);
-        editor.putString(KEY_USUARIOS, json).apply();
-    }
-
     // === ROLES ===
-
-    public String obtenerRol(String correo) {
-        for (Usuario u : obtenerUsuarios()) {
-            if (u.getCorreo().equalsIgnoreCase(correo)) {
-                return u.getRol();
-            }
-        }
-        return "user";
-    }
 
     public void guardarRol(String rol) {
         editor.putString(KEY_ROL_ACTIVO, rol).apply();
@@ -134,8 +120,7 @@ public class PreferenceManager {
 
     private String obtenerClaveCarrito() {
         String correo = prefs.getString(KEY_SESION, null);
-        if (correo == null) return null;
-        return "CARRITO_" + correo;
+        return correo != null ? "CARRITO_" + correo : null;
     }
 
     public List<Producto> obtenerCarrito() {
@@ -162,21 +147,31 @@ public class PreferenceManager {
         if (!encontrado) {
             carrito.add(nuevo);
         }
-        String clave = obtenerClaveCarrito();
-        if (clave == null) return;
-        String json = gson.toJson(carrito);
-        editor.putString(clave, json).apply();
+        saveCarrito(carrito);
     }
 
     public void eliminarDelCarrito(int index) {
         List<Producto> carrito = obtenerCarrito();
         if (index >= 0 && index < carrito.size()) {
             carrito.remove(index);
-            String clave = obtenerClaveCarrito();
-            if (clave == null) return;
-            String json = gson.toJson(carrito);
-            editor.putString(clave, json).apply();
+            saveCarrito(carrito);
         }
+    }
+
+    public void actualizarCantidad(int index, int cantidad) {
+        List<Producto> carrito = obtenerCarrito();
+        if (index >= 0 && index < carrito.size()) {
+            Producto p = carrito.get(index);
+            p.setCantidad(cantidad);
+            saveCarrito(carrito);
+        }
+    }
+
+    private void saveCarrito(List<Producto> carrito) {
+        String clave = obtenerClaveCarrito();
+        if (clave == null) return;
+        String json = gson.toJson(carrito);
+        editor.putString(clave, json).apply();
     }
 
     public void limpiarCarrito() {
@@ -188,18 +183,18 @@ public class PreferenceManager {
 
     // === AUDIO (Música + Efectos) ===
 
-    /** Activa o desactiva la música de fondo y efectos */
     public void setMusicEnabled(boolean enabled) {
         editor.putBoolean(KEY_MUSIC_ENABLED, enabled).apply();
     }
+
     public boolean isMusicEnabled() {
         return prefs.getBoolean(KEY_MUSIC_ENABLED, true);
     }
 
-    /** Ajusta el volumen de efectos (0.0 a 1.0) */
     public void setSoundVolume(float volume) {
         editor.putFloat(KEY_SOUND_VOLUME, volume).apply();
     }
+
     public float getSoundVolume() {
         return prefs.getFloat(KEY_SOUND_VOLUME, 1.0f);
     }

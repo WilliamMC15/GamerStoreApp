@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Tema principal con paleta oscuro + neón y fuente gamer -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/fondoGlobal</item>
@@ -8,7 +7,7 @@
         <item name="colorAccent">@color/destacado</item>
         <item name="android:windowBackground">@color/fondoGlobal</item>
         <item name="android:textColor">@color/textoBlanco</item>
-        <item name="fontFamily">@font/tech_font</item>
+        <item name="android:fontFamily">@font/tech_font</item>
     </style>
 
     <!-- Encabezados estilo gamer -->
@@ -16,7 +15,7 @@
         <item name="android:textColor">@color/destacado</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="fontFamily">@font/tech_font</item>
+        <item name="android:fontFamily">@font/tech_font</item>
     </style>
 
     <!-- Botón principal con neón -->
@@ -25,14 +24,13 @@
         <item name="android:textColor">@color/textoBlanco</item>
         <item name="android:padding">12dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="fontFamily">@font/tech_font</item>
+        <item name="android:fontFamily">@font/tech_font</item>
     </style>
 
     <!-- Enlaces con acento neón -->
     <style name="EnlaceTexto">
         <item name="android:textColor">@color/teal_200</item>
         <item name="android:textStyle">bold</item>
-        <item name="fontFamily">@font/tech_font</item>
+        <item name="android:fontFamily">@font/tech_font</item>
     </style>
-
 </resources>

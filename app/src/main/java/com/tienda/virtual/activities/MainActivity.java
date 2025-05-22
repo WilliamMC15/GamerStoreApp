@@ -16,7 +16,7 @@ import com.tienda.virtual.fragments.CategoriesFragment;
 import com.tienda.virtual.fragments.HomeFragment;
 import com.tienda.virtual.fragments.ProductsFragment;
 import com.tienda.virtual.fragments.ProfileFragment;
-import com.tienda.virtual.fragments.StoresFragment;         // NUEVO
+import com.tienda.virtual.fragments.StoresFragment;
 import com.tienda.virtual.services.MediaPlayerService;
 import com.tienda.virtual.utils.PreferenceManager;
 
@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new CategoriesFragment();
                 setTitle("Categorías");
 
-            } else if (id == R.id.nav_stores) {              // NUEVO
+            } else if (id == R.id.nav_stores) {
                 selectedFragment = new StoresFragment();
-                setTitle("Tiendas Cercanas");
+                setTitle("Tiendas");
 
             } else if (id == R.id.nav_cart) {
                 selectedFragment = new CartFragment();
